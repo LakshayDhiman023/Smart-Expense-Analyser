@@ -3,8 +3,21 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+const RECEIPT_CATEGORIES = [
+  'food',
+  'transportation',
+  'entertainment',
+  'shopping',
+  'utilities',
+  'healthcare',
+  'others'
+] as const;
+
+type ReceiptCategory = typeof RECEIPT_CATEGORIES[number];
+
 const UploadReceipt = () => {
   const [file, setFile] = useState<File | null>(null);
+  const [category, setCategory] = useState<ReceiptCategory>('others');
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -39,6 +52,7 @@ const UploadReceipt = () => {
 
       const formData = new FormData();
       formData.append('file', file);
+      formData.append('category', category);
 
       const response = await axios.post('http://localhost:3001/api/upload', formData, {
         headers: {
@@ -85,6 +99,24 @@ const UploadReceipt = () => {
               Selected: {file.name}
             </p>
           )}
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="category" className="block text-sm font-medium text-gray-700">
+            Receipt Category
+          </label>
+          <select
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value as ReceiptCategory)}
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          >
+            {RECEIPT_CATEGORIES.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              </option>
+            ))}
+          </select>
         </div>
 
         <button
