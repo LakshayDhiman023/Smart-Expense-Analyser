@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const connectDatabase = require('./config/database');
 const receiptRoutes = require('./routes/receipt');
+const analyticsRoutes = require('./routes/analytics');
 
 // Verify API key is loaded
 console.log('Hugging Face API Key loaded:', process.env.HUGGINGFACE_API_KEY ? 'Yes' : 'No');
@@ -27,6 +28,7 @@ connectDatabase();
 
 // Routes
 app.use('/api', receiptRoutes);
+app.use('/api/analytics', analyticsRoutes);
 
 // Error handling middleware
 app.use((error, req, res, next) => {
