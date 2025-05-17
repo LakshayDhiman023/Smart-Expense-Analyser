@@ -62,7 +62,7 @@ const BudgetPage = () => {
       setSuccess(`Budget for ${cat} set!`);
       setTimeout(() => setSuccess(null), 2000);
       fetchBudgets();
-    } catch (err) {
+    } catch (err: unknown) {
       setError("Failed to set budget");
       console.log(err);
       
