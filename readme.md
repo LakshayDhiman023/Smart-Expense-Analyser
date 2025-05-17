@@ -1,4 +1,4 @@
-# 💰 Smart Expense Analyzer
+# 💰 Smart Expense Analyzer 
 
 <div align="center">
 
@@ -11,6 +11,10 @@ A powerful full-stack web application that automates expense tracking by extract
 [Features](#-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Contributing](#-contributing)
 
 </div>
+
+## Live demo
+
+Check out the live demo here: [Smart Expense Analyzer Live](https://smart-expense-analyser-frontend.onrender.com/)
 
 ## ✨ Overview
 
