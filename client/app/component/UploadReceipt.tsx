@@ -102,9 +102,8 @@ const UploadReceipt = () => {
           found = true;
           break;
         }
-      } catch (err) {
-        // ignore
-        const a = err;
+      } catch  {
+        
         
       }
       attempts++;
