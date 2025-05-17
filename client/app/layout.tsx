@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {
   ClerkProvider,
-  SignIn,
   SignUp,
   SignedIn,
   SignedOut,
@@ -11,7 +10,7 @@ import {
 } from '@clerk/nextjs'
 import Link from "next/link";
 import {Upload, BarChart2, PieChart, Wallet, History } from "lucide-react";
-import UploadReceipt from "./component/UploadReceipt";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,7 +64,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased `}
         >
           <SignedOut>
             <div className="flex min-h-screen w-screen items-center justify-center">
@@ -121,6 +120,10 @@ export default function RootLayout({
                   {children}
                 </div>
               </main>
+            </div>
+            <div className="absolute top-4 right-4">
+
+              <UserButton />
             </div>
           </SignedIn>
         </body>

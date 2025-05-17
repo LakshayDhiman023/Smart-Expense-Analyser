@@ -27,7 +27,7 @@ const BudgetPage = () => {
   const fetchBudgets = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:3001/api/budget/all");
+      const res = await axios.get("https://smart-expense-analyser-backend.onrender.com/api/budget/all");
       const budgetMap: { [key: string]: number } = {};
       res.data.forEach((b: any) => {
         budgetMap[b.category] = b.amount;
@@ -53,7 +53,7 @@ const BudgetPage = () => {
       return;
     }
     try {
-      await axios.post("http://localhost:3001/api/budget/set", {
+      await axios.post("https://smart-expense-analyser-backend.onrender.com/api/budget/set", {
         category: cat,
         amount,
       });

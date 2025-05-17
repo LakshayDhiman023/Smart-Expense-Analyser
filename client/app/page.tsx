@@ -1,7 +1,4 @@
-import Image from "next/image";
-import {
-  UserButton,
-} from '@clerk/nextjs'
+
 import UploadReceipt from "./component/UploadReceipt";
 import Link from "next/link";
 import { BarChart2, PieChart, Wallet, History } from "lucide-react";

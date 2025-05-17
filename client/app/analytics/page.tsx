@@ -3,8 +3,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
-  BarChart,
-  Bar,
   LineChart,
   Line,
   XAxis,
@@ -49,7 +47,7 @@ const MonthlyAnalytics = () => {
   const fetchAnalytics = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:3001/api/analytics/monthly`, {
+      const response = await axios.get(`https://smart-expense-analyser-backend.onrender.com/api/analytics/monthly`, {
         params: {
           startDate: dateRange.startDate,
           endDate: dateRange.endDate

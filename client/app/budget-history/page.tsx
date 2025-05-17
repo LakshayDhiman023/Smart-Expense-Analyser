@@ -38,7 +38,7 @@ const BudgetHistoryPage = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.get("http://localhost:3001/api/budget/history", {
+      const res = await axios.get("https://smart-expense-analyser-backend.onrender.com/api/budget/history", {
         params: { start: period.start, end: period.end },
       });
       setStats(res.data.stats || {});

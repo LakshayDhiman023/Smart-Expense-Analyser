@@ -67,7 +67,7 @@ const UploadReceipt = () => {
       formData.append('file', file);
       formData.append('category', category);
 
-      const response = await axios.post('http://localhost:3001/api/upload', formData, {
+      const response = await axios.post('https://smart-expense-analyser-backend.onrender.com/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -96,7 +96,7 @@ const UploadReceipt = () => {
     let found = false;
     while (attempts < 10 && !found) {
       try {
-        const res = await axios.get(`http://localhost:3001/api/receipt/${id}`);
+        const res = await axios.get(`https://smart-expense-analyser-backend.onrender.com/api/receipt/${id}`);
         if (res.data.data) {
           setExtracted(res.data.data);
           found = true;

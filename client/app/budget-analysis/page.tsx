@@ -43,7 +43,7 @@ const BudgetAnalysisPage = () => {
     setError(null);
     try {
       const { startDate, endDate } = getMonthRange(selectedDate);
-      const res = await axios.get("http://localhost:3001/api/analytics/monthly", {
+      const res = await axios.get("https://smart-expense-analyser-backend.onrender.com/api/analytics/monthly", {
         params: { startDate, endDate },
       });
       // Map budgets
