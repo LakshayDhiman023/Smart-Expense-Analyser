@@ -196,7 +196,7 @@ const MonthlyAnalytics = () => {
                   outerRadius={100}
                   label={({ name, value }) => `${name}: $${value.toFixed(2)}`}
                 >
-                  {categoryData.map((entry, index) => (
+                  {categoryData.map((entry) => (
                     <Cell key={entry.name} fill={COLORS[entry.name as keyof typeof COLORS]} />
                   ))}
                 </Pie>
