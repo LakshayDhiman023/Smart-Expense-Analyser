@@ -1,4 +1,5 @@
 const Receipt = require('../models/Receipt');
+const Budget = require('../models/Budget');
 
 const getMonthlyAnalytics = async (req, res) => {
   try {
@@ -99,12 +100,16 @@ const getMonthlyAnalytics = async (req, res) => {
       { $limit: 5 }
     ]);
 
+    // Fetch budgets
+    const budgets = await Budget.find({});
+
     res.json({
       monthlyTotal: totalSpending,
       categoryTotals,
       dailySpending,
       topMerchants,
       topItems,
+      budgets,
       metadata: {
         startDate: start.toISOString(),
         endDate: end.toISOString(),

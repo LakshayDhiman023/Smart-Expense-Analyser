@@ -78,16 +78,16 @@ const MonthlyAnalytics = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-xl">Loading analytics...</div>
+      <div className="flex items-center justify-center min-h-screen bg-gray-50">
+        <div className="text-xl text-gray-600">Loading analytics...</div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-xl text-red-500">{error}</div>
+      <div className="flex items-center justify-center min-h-screen bg-gray-50">
+        <div className="text-xl text-red-500 font-semibold">{error}</div>
       </div>
     );
   }
@@ -102,10 +102,11 @@ const MonthlyAnalytics = () => {
   }));
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-2 sm:px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-4">Expense Analytics</h1>
-        <div className="flex flex-wrap gap-4 items-center bg-white p-4 rounded-lg shadow">
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-2 text-center">Expense Analytics</h1>
+        <p className="text-gray-500 text-center mb-6">Visualize your spending and trends for any period.</p>
+        <div className="flex flex-wrap gap-4 items-center justify-center bg-white p-4 rounded-lg shadow">
           <div className="flex items-center gap-2">
             <label htmlFor="startDate" className="font-medium">From:</label>
             <input
@@ -161,9 +162,9 @@ const MonthlyAnalytics = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Total Spending Overview */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-semibold mb-4">Total Overview</h2>
-          <div className="text-3xl font-bold text-green-600">
+        <div className="bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center">
+          <h2 className="text-xl font-semibold mb-2">Total Overview</h2>
+          <div className="text-4xl font-extrabold text-green-600 mb-1">
             ${analytics.monthlyTotal.toFixed(2)}
           </div>
           <div className="text-sm text-gray-500">
@@ -172,9 +173,9 @@ const MonthlyAnalytics = () => {
         </div>
 
         {/* Receipt Count */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-semibold mb-4">Receipt Count</h2>
-          <div className="text-3xl font-bold text-blue-600">
+        <div className="bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center">
+          <h2 className="text-xl font-semibold mb-2">Receipt Count</h2>
+          <div className="text-4xl font-extrabold text-blue-600 mb-1">
             {analytics.metadata.receiptCount}
           </div>
           <div className="text-sm text-gray-500">
@@ -183,7 +184,7 @@ const MonthlyAnalytics = () => {
         </div>
 
         {/* Category Distribution */}
-        <div className="bg-white p-6 rounded-lg shadow-lg col-span-1 md:col-span-2">
+        <div className="bg-white p-6 rounded-2xl shadow-lg col-span-1 md:col-span-2">
           <h2 className="text-xl font-semibold mb-4">Spending by Category</h2>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
@@ -209,7 +210,7 @@ const MonthlyAnalytics = () => {
         </div>
 
         {/* Daily Spending Trend */}
-        <div className="bg-white p-6 rounded-lg shadow-lg col-span-1 md:col-span-2">
+        <div className="bg-white p-6 rounded-2xl shadow-lg col-span-1 md:col-span-2">
           <h2 className="text-xl font-semibold mb-4">Daily Spending Trend</h2>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
@@ -226,27 +227,27 @@ const MonthlyAnalytics = () => {
         </div>
 
         {/* Top Merchants */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
+        <div className="bg-white p-6 rounded-2xl shadow-lg">
           <h2 className="text-xl font-semibold mb-4">Top Merchants</h2>
           <div className="space-y-4">
             {analytics.topMerchants.map((merchant: any) => (
               <div key={merchant._id} className="flex justify-between items-center">
-                <span className="font-medium">{merchant._id}</span>
-                <span className="text-green-600">${merchant.total.toFixed(2)}</span>
+                <span className="font-medium text-gray-700">{merchant._id}</span>
+                <span className="text-green-600 font-semibold">${merchant.total.toFixed(2)}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Top Items */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
+        <div className="bg-white p-6 rounded-2xl shadow-lg">
           <h2 className="text-xl font-semibold mb-4">Most Frequent Items</h2>
           <div className="space-y-4">
             {analytics.topItems.map((item: any) => (
               <div key={item._id} className="flex justify-between items-center">
-                <span className="font-medium">{item._id}</span>
+                <span className="font-medium text-gray-700">{item._id}</span>
                 <div className="text-right">
-                  <div className="text-green-600">${item.totalSpent.toFixed(2)}</div>
+                  <div className="text-green-600 font-semibold">${item.totalSpent.toFixed(2)}</div>
                   <div className="text-sm text-gray-500">Bought {item.count} times</div>
                 </div>
               </div>
