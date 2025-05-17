@@ -55,6 +55,8 @@ const BudgetAnalysisPage = () => {
       setCategoryTotals(res.data.categoryTotals || {});
     } catch (err) {
       setError("Failed to fetch budget analysis");
+      console.log(err);
+      
     } finally {
       setLoading(false);
     }

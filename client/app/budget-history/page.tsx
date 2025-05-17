@@ -45,6 +45,8 @@ const BudgetHistoryPage = () => {
       setMonths(res.data.months || []);
     } catch (err) {
       setError("Failed to fetch budget history");
+      console.log(err);
+      
     } finally {
       setLoading(false);
     }
