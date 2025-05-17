@@ -1,111 +1,158 @@
-# 💰 Smart Expense Analyser
+# 💰 Smart Expense Analyzer
 
-Smart Expense Analyser is a full-stack web application that helps users automatically extract and analyze expenses from physical or digital receipts. By leveraging OCR and NLP, it converts receipts into structured data, enabling budget tracking and financial insights.
+<div align="center">
 
----
+![Smart Expense Analyzer](https://img.shields.io/badge/Smart-Expense%20Analyzer-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-1.0.0-orange)
+
+A powerful full-stack web application that automates expense tracking by extracting and analyzing data from receipts using advanced OCR and NLP technologies.
+
+[Features](#-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Contributing](#-contributing)
+
+</div>
+
+## ✨ Overview
+
+Smart Expense Analyzer transforms the way you manage expenses by automatically extracting and analyzing data from your receipts. Using cutting-edge OCR and NLP technologies, it converts physical or digital receipts into structured data, enabling effortless budget tracking and financial insights.
 
 ## 🚀 Features
 
-- 📤 Upload receipt images or PDFs
-- 🔐 User authentication powered by [Clerk](https://clerk.dev)
-- 🔍 OCR processing using Tesseract.js
-- 🧠 NER (Named Entity Recognition) with BERT-based LayoutLM to extract:
-  - Merchant Name
-  - Total Bill
-  - Items and Costs
-  - Purchase Date
-- 🗃️ Data storage in MongoDB
-- 📊 Interactive analytics dashboard (e.g., pie charts)
-- 🎯 Set and manage monthly budgets
-- 📈 View budget history and get spending insights
+- 📤 **Receipt Upload**
+  - Support for images and PDFs
+  - Drag-and-drop interface
+  - Real-time upload status
 
----
+- 🔍 **Smart Data Extraction**
+  - Merchant information
+  - Total amount
+  - Individual items and prices
+  - Purchase date
+  - Category classification
+
+- 📊 **Analytics Dashboard**
+  - Interactive expense charts
+  - Category-wise breakdown
+  - Monthly spending trends
+  - Budget vs. actual analysis
+
+- 💰 **Budget Management**
+  - Set monthly budgets
+  - Track spending limits
+  - Receive alerts for overspending
+  - Historical budget analysis
 
 ## 🛠️ Tech Stack
 
-| Layer       | Technology          |
-|------------|---------------------|
-| Frontend    | Next.js             |
-| Styling     | Tailwind CSS        |
-| Backend     | Node.js (Express)   |
-| Database    | MongoDB             |
-| OCR Engine  | Tesseract.js        |
-| NER Model   | BERT-based LayoutLM |
-| Charts      | Chart.js / Recharts |
-| Auth        | Clerk               |
+| Category | Technologies |
+|----------|--------------|
+| Frontend | Next.js, React, Tailwind CSS |
+| Backend | Node.js, Express |
+| Database | MongoDB |
+| AI/ML | Tesseract.js, BERT-based LayoutLM |
+| Authentication | Clerk |
+| Visualization | Chart.js, Recharts |
+
+## 🏁 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB
+- npm or yarn
+- Clerk account
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/smart-expense-analyser.git
+   cd smart-expense-analyser
+   ```
+
+2. **Frontend Setup**
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+   Create `.env.local`:
+   ```env
+   CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
+   NEXT_PUBLIC_CLERK_FRONTEND_API=your-clerk-frontend-api
+   CLERK_SECRET_KEY=your-clerk-secret-key
+   ```
+
+3. **Backend Setup**
+   ```bash
+   cd ../backend
+   npm install
+   ```
+
+   Create `.env`:
+   ```env
+   MONGODB_URI=mongodb://localhost:27017/expenseDB
+   PORT=5000
+   CLERK_SECRET_KEY=your-clerk-secret-key
+   ```
+
+4. **Start the Application**
+   ```bash
+   # Terminal 1 - Frontend
+   cd frontend
+   npm run dev
+
+   # Terminal 2 - Backend
+   cd backend
+   npm start
+   ```
+
+## 🔧 How It Works
+
+1. **Authentication**
+   - Secure login/signup via Clerk
+   - OAuth, magic links, and email/password support
+
+2. **Receipt Processing**
+   - Upload receipt through intuitive UI
+   - OCR processing with Tesseract.js
+   - NER extraction using LayoutLM
+
+3. **Data Management**
+   - Structured data storage in MongoDB
+   - User-specific data isolation
+   - Real-time updates
+
+4. **Analytics**
+   - Interactive dashboard
+   - Customizable reports
+   - Budget tracking
+   - Spending insights
+
+## 🤝 Contributing
+
+We welcome contributions! Please feel free to:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Support
+
+For support, please:
+- Open an issue in the GitHub repository
+- Contact the maintainers
+- Check the documentation
 
 ---
 
-## 🧠 How It Works
-
-1. **User Login/Signup**  
-   Authentication handled through Clerk (OAuth, magic links, email/password).
-
-2. **Upload Receipt**  
-   Upload receipt image or PDF via the frontend UI.
-
-3. **OCR Processing**  
-   Uses Tesseract.js to extract text and layout data from the uploaded file.
-
-4. **NER Extraction**  
-   A LayoutLM model extracts structured data like merchant, items, prices, and date.
-
-5. **Data Storage**  
-   Parsed data is stored in MongoDB and linked to the authenticated user.
-
-6. **Analytics & Budgeting**  
-   - Track expenses with pie charts and summaries  
-   - Set monthly budgets  
-   - Monitor historical budget performance  
-
----
-
-## 📦 Installation & Setup
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/smart-expense-analyser.git
-cd smart-expense-analyser
-2. Setup Clerk
-Create an account at Clerk.dev
-
-Get your Frontend API and JWT Secret
-
-Configure environment variables in frontend/.env.local:
-
-env
-Copy
-Edit
-CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
-NEXT_PUBLIC_CLERK_FRONTEND_API=your-clerk-frontend-api
-CLERK_SECRET_KEY=your-clerk-secret-key
-3. Run Frontend
-bash
-Copy
-Edit
-cd frontend
-npm install
-npm run dev
-4. Setup Backend
-bash
-Copy
-Edit
-cd ../backend
-npm install
-npm start
-Configure environment variables in backend/.env:
-
-env
-Copy
-Edit
-MONGODB_URI=mongodb://localhost:27017/expenseDB
-PORT=5000
-CLERK_SECRET_KEY=your-clerk-secret-key
-📄 License
-This project is licensed under the MIT License.
-
-🤝 Contributing
-We welcome contributions of any kind!
-Fork the repo, open issues, or submit pull requests to help improve the platform.
+<div align="center">
+Made with ❤️ by the Smart Expense Analyzer Team
+</div>
 
