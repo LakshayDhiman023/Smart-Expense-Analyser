@@ -20,7 +20,6 @@ Smart Expense Analyzer transforms the way you manage expenses by automatically e
 
 - 📤 **Receipt Upload**
   - Support for images and PDFs
-  - Drag-and-drop interface
   - Real-time upload status
 
 - 🔍 **Smart Data Extraction**
@@ -66,44 +65,43 @@ Smart Expense Analyzer transforms the way you manage expenses by automatically e
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/smart-expense-analyser.git
+   git clone https://github.com/LakshayDhiman023/Smart-Expense-Analyser.git
    cd smart-expense-analyser
    ```
 
 2. **Frontend Setup**
    ```bash
-   cd frontend
+   cd client
    npm install
    ```
 
    Create `.env.local`:
    ```env
-   CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
-   NEXT_PUBLIC_CLERK_FRONTEND_API=your-clerk-frontend-api
-   CLERK_SECRET_KEY=your-clerk-secret-key
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY= your-clerk0-publishable-key
+    CLERK_SECRET_KEY=your-clerk-secret-key
+   
    ```
 
 3. **Backend Setup**
    ```bash
-   cd ../backend
+   cd ../server
    npm install
    ```
 
    Create `.env`:
    ```env
-   MONGODB_URI=mongodb://localhost:27017/expenseDB
-   PORT=5000
-   CLERK_SECRET_KEY=your-clerk-secret-key
+   MONGODB_URI = your-mongodb-uri 
+    HUGGINGFACE_API_KEY = your-huggingface-api-key
    ```
 
 4. **Start the Application**
    ```bash
    # Terminal 1 - Frontend
-   cd frontend
+   cd client
    npm run dev
 
    # Terminal 2 - Backend
-   cd backend
+   cd server
    npm start
    ```
 
@@ -153,6 +151,6 @@ For support, please:
 ---
 
 <div align="center">
-Made with ❤️ by the Smart Expense Analyzer Team
+Made with ❤️ by the Smart Expense Analyzer Team [Me]
 </div>
 
